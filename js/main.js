@@ -96,6 +96,28 @@ function renderControls() {
     })
 }
 
+// render message -> display whose turn it is
+function renderMessage() {
+    // message a tie
+    if (winner === 'T') {
+        messageEl.innerText = "WOWEE, You tied!"
+    // message a winner
+    } else if (winner) {
+        messageEl.innerHTML = `
+            <span style="color: ${colors[winner]}">
+                ${colors[winner].toUpperCase()}
+            </span> Wins!
+        `
+    // or the current turn
+    } else {
+        messageEl.innerHTML = `
+            <span style="color: ${colors[turn]}">
+                ${colors[turn].toUpperCase()}
+            </span>'s Turn!
+        `
+    }
+}
+
 //////////////////////////////////
 // event listeners
 //////////////////////////////////
