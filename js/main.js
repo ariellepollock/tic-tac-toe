@@ -53,6 +53,32 @@ function init() {
 
 init()
 
+// function - renderBoard - render the game board
+function renderBoard() {
+    // loop over our array that represents the board
+    // apply a background color for each element
+    board.forEach((colArr, colIdx) => {
+        // colArr is the column, colIdx is the id within the array
+        // console.log('colArr', colArr)
+        // console.log('colIdx', colIdx)
+        colArr.forEach((cellVal, rowIdx) => {
+            // console.log('cellVal', cellVal)
+            // console.log('rowIdx', rowIdx)
+            // determine the id of the element
+            const cellId = `c${colIdx}r${rowIdx}`
+            // I could have done this, but it's a lil clunky and old school
+            // const cellId2 = 'c' + colIdx + 'r' + rowIdx
+            // console.log('cellId', cellId)
+
+            const cellEl = document.getElementById(cellId)
+            // console.log('cellEl', cellEl)
+
+            cellEl.style.backgroundColor = colors[cellVal]
+            
+        })
+    })
+}
+
 //////////////////////////////////
 // event listeners
 //////////////////////////////////
