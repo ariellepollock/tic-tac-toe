@@ -38,7 +38,7 @@ let winner // null || 1 || -1 || 'T'
 // cached DOM elements
 //////////////////////////////////
 // grab our HTML elements, save them to variables, and use later
-const message = document.querySelector('h1');
+const message = document.querySelector('h2');
 const playAgainBtn = document.querySelector('button');
 
 
@@ -99,8 +99,8 @@ function render() {
     renderBoard()
     // call renderMessage
     renderMessage()
-    // call renderControls
-    renderControls()
+    // Hide/show PLAY AGAIN button
+    playAgainBtn.disabled = !winner;
 }
 
 // render controls -> changes the visibility of the play again button
