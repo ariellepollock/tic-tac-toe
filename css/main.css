@@ -22,7 +22,7 @@ header {
 h2 {
     font-family: 'Mukta', sans-serif;
     font-size: 40px;
-    color: #8360a9;
+    color: #2b3336;
     margin-top: 5px;
 }
 
@@ -45,11 +45,7 @@ h2 {
 }
 
 #board > div.avail:hover {
-    background-color: #8360a9;
-}
-
-#board > div.avail:active {
-    background-color: #76c698;
+    background-color: white;
 }
 
 button {

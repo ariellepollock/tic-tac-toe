@@ -12,8 +12,8 @@
 //////////////////////////////////
 const colors = {
     'null': 'T',
-    '1': 'X',
-    '-1': 'O'
+    '1': 'Purple',
+    '-1': 'Green'
 }
 
 const winningCombos = [
