@@ -11,9 +11,9 @@
 // constants
 //////////////////////////////////
 const colors = {
-    0: 'almond',
-    1: 'purple',
-    '-1': 'green'
+    null: 'T',
+    1: 'X',
+    '-1': 'O'
 }
 
 const winningCombos = [
@@ -70,19 +70,11 @@ function renderBoard() {
     // apply a background color for each element
     board.forEach((colArr, colIdx) => {
         // colArr is the column, colIdx is the id within the array
-        // console.log('colArr', colArr)
-        // console.log('colIdx', colIdx)
         colArr.forEach((cellVal, rowIdx) => {
-            // console.log('cellVal', cellVal)
-            // console.log('rowIdx', rowIdx)
             // determine the id of the element
             const cellId = `c${colIdx}r${rowIdx}`
-            // I could have done this, but it's a lil clunky and old school
-            // const cellId2 = 'c' + colIdx + 'r' + rowIdx
-            // console.log('cellId', cellId)
 
             const cellEl = document.getElementById(cellId)
-            // console.log('cellEl', cellEl)
 
             cellEl.style.backgroundColor = colors[cellVal]
             
@@ -160,3 +152,5 @@ function renderMessage() {
 //////////////////////////////////
 // event listeners
 //////////////////////////////////
+document.getElementById('board').addEventListener('click', handleMove);
+playAgainBtn.addEventListener('click', initialize);
