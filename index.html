@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poiret+One&family=Titillium+Web:ital,wght@1,700&display=swap" rel="stylesheet">
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    
+    <header>Let's Play Tic Tac Toe!</header>
+    <h2>X's Turn</h2>
+
+    <!-- column markers -->
+    <section id="markers">
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+
+    <!-- game board -->
+    <section id="board">
+        <!-- row 2 -->
+        <div id="c0r2"></div>
+        <div id="c1r2"></div>
+        <div id="c2r2"></div>
+        <!-- row 1 -->
+        <div id="c0r1"></div>
+        <div id="c1r1"></div>
+        <div id="c2r1"></div>
+        <!-- row 0 -->
+        <div id="c0r0"></div>
+        <div id="c1r0"></div>
+        <div id="c2r0"></div>
+    </section>
+
+    <!-- play again button -->
+    <div>
+        <button>PLAY AGAIN</button>
+    </div>
 </body>
 </html>
