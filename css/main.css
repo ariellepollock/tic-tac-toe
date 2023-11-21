@@ -13,11 +13,38 @@ body {
 }
 
 header {
-    font-size: 25px;
+    font-size: 50px;
     color: #2b3336;
 }
 
 h2 {
-    font-size: 15px;
+    font-size: 40px;
     color: black;
+}
+
+#markers {
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    gap: 10px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
+    gap: 10px;
+}
+
+button {
+    color: blanchedalmond;
+    background-color: #2b3336;
+    border-radius: 2px;
+    font-size: 20px;
+    margin: auto;
+}
+
+button:hover {
+    color: #2b3336;
+    background-color: blanchedalmond;
+    border: 8px #2b3336;
 }
