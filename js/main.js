@@ -49,20 +49,13 @@ console.log('markerEls \n', markerEls)
 // functions
 //////////////////////////////////
 function initialize() {
-    turn = 1
-    winner = null
-
-    board = [
-        [0, 0, 0], // col 0
-        [0, 0, 0], // col 1
-        [0, 0, 0], // col 2
-    ]
-
-    // CALL THE RENDER FUNCTION ONCE THE RENDER FUNCTION IS BUILT
-    render()
+    board = [null, null, null, null, null, null, null, null, null];
+    // OR initialize like this:
+    // board = new Array(9).fill(null);
+    turn = 1;
+    winner = null;
+    render();
 }
-
-initialize()
 
 // function - renderBoard - render the game board
 function renderBoard() {
@@ -145,6 +138,16 @@ function renderMessage() {
         `
     }
 }
+
+function renderMessage() {
+    if (winner === 'T') {
+      message.innerHTML = 'Rats, another tie!';
+    } else if (winner) {
+      message.innerHTML = `Congrats <span style="color: ${COLOR_LOOKUP[winner]}">${COLOR_LOOKUP[winner].toUpperCase()}</span>!`;
+    } else {
+      message.innerHTML = `<span style="color: ${COLOR_LOOKUP[turn]}">${COLOR_LOOKUP[turn].toUpperCase()}</span>'s Turn`;
+    }
+  }
 
 
 
