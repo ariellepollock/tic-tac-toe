@@ -25,12 +25,6 @@ h2 {
     margin-top: 5px;
 }
 
-#markers {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 10px;
-}
-
 #board {
     display: grid;
     grid-template-columns: repeat(3, 100px);

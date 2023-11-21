@@ -30,7 +30,7 @@ const winningCombos = [
 //////////////////////////////////
 // state variables
 //////////////////////////////////
-let board // an array of 3 nested arrays
+let board 
 let turn // will be a value of 1 or -1 (1 || -1)
 let winner // null || 1 || -1 || 'T'
 
