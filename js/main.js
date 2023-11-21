@@ -48,7 +48,7 @@ console.log('markerEls \n', markerEls)
 //////////////////////////////////
 // functions
 //////////////////////////////////
-function init() {
+function initialize() {
     turn = 1
     winner = null
 
@@ -62,7 +62,7 @@ function init() {
     render()
 }
 
-init()
+initialize()
 
 // function - renderBoard - render the game board
 function renderBoard() {
@@ -88,6 +88,31 @@ function renderBoard() {
             
         })
     })
+}
+
+function getWinner() {
+    for (let winArr of winningCombos) {
+      if (Math.abs(board[0] + board[1] + board[2]) === 3) return board[0];
+      if (Math.abs(board[3] + board[4] + board[5]) === 3) return board[3];
+      if (Math.abs(board[6] + board[7] + board[8]) === 3) return board[6];
+      if (Math.abs(board[0] + board[3] + board[6]) === 3) return board[0];
+      if (Math.abs(board[1] + board[4] + board[7]) === 3) return board[1];
+      if (Math.abs(board[2] + board[5] + board[8]) === 3) return board[2];
+      if (Math.abs(board[0] + board[4] + board[8]) === 3) return board[0];
+      if (Math.abs(board[2] + board[4] + board[6]) === 3) return board[2];
+    if (board.includes(null)) return null;
+    }
+    return 'T';
+  }
+
+// render -> call all of our render based functions at once
+function render() {
+    // call renderBoard
+    renderBoard()
+    // call renderMessage
+    renderMessage()
+    // call renderControls
+    renderControls()
 }
 
 // render controls -> changes the visibility of the play again button
@@ -129,15 +154,7 @@ function renderMessage() {
     }
 }
 
-// render -> call all of our render based functions at once
-function render() {
-    // call renderBoard
-    renderBoard()
-    // call renderMessage
-    renderMessage()
-    // call renderControls
-    renderControls()
-}
+
 
 
 //////////////////////////////////
