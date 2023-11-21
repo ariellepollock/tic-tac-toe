@@ -103,40 +103,25 @@ function render() {
     playAgainBtn.disabled = !winner;
 }
 
-// render message -> display whose turn it is
-function renderMessage() {
-    // message a tie
-    if (winner === 'T') {
-        messageEl.innerText = "WOWEE, You tied!"
-    // message a winner
-    } else if (winner) {
-        messageEl.innerHTML = `
-            <span style="color: ${colors[winner]}">
-                ${colors[winner].toUpperCase()}
-            </span> Wins!
-        `
-    // or the current turn
-    } else {
-        messageEl.innerHTML = `
-            <span style="color: ${colors[turn]}">
-                ${colors[turn].toUpperCase()}
-            </span>'s Turn!
-        `
-    }
+function renderBoard() {
+    board.forEach(function(sqVal, idx) {
+      const squareEl = document.getElementById(`sq-${idx}`);
+      squareEl.style.backgroundColor = colors[sqVal];
+      // Add class if square available for hover effect
+      squareEl.className = !sqVal ? 'avail' : '';
+    });
 }
 
+// render message -> display players turn, winner or tie
 function renderMessage() {
     if (winner === 'T') {
-      message.innerHTML = 'Rats, another tie!';
+      message.innerHTML = 'WOWEE, a tie!';
     } else if (winner) {
-      message.innerHTML = `Congrats <span style="color: ${COLOR_LOOKUP[winner]}">${COLOR_LOOKUP[winner].toUpperCase()}</span>!`;
+      message.innerHTML = `<span style="color: ${colors[winner]}">${colors[winner].toUpperCase()}</span> wins!`;
     } else {
-      message.innerHTML = `<span style="color: ${COLOR_LOOKUP[turn]}">${COLOR_LOOKUP[turn].toUpperCase()}</span>'s Turn`;
+      message.innerHTML = `<span style="color: ${colors[turn]}">${colors[turn].toUpperCase()}</span>'s Turn`;
     }
   }
-
-
-
 
 //////////////////////////////////
 // event listeners

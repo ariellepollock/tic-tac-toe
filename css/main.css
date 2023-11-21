@@ -6,6 +6,7 @@
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     font-family: 'Bebas Neue', sans-serif;
     height: 100vh;
@@ -33,6 +34,19 @@ h2 {
     background-color: #2b3336;
 }
 
+#board > div {
+    background-color: blanchedalmond;
+    border: 1vmin solid blanchedalmond;
+}
+
+#board > div.avail {
+    cursor: grab;
+}
+
+#board > div.avail:hover {
+    background-color: #8360a9;
+}
+
 button {
     color: blanchedalmond;
     background-color: #2b3336;
@@ -41,9 +55,10 @@ button {
     padding: 5px;
     border: 5px;
     margin-top: 50px;
+    cursor: grab;
 }
 
-button:hover {
-    color: #2b3336;
+button:disabled {
     background-color: blanchedalmond;
+    color: blanchedalmond;
 }
