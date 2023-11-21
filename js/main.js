@@ -38,12 +38,10 @@ let winner // null || 1 || -1 || 'T'
 // cached DOM elements
 //////////////////////////////////
 // grab our HTML elements, save them to variables, and use later
-const messageEl = document.querySelector('h2')
-const playAgainButton = document.querySelector('button')
-// we want to grab our marker elements and save them to an array
-// because we used array brackets, the spread operator is grabbing the items in the nodelist and pushing them into a new array
-const markerEls = [...document.querySelectorAll('#markers > div')]
-console.log('markerEls \n', markerEls)
+const message = document.querySelector('h1');
+const playAgainBtn = document.querySelector('button');
+
+
 
 //////////////////////////////////
 // functions
@@ -57,23 +55,28 @@ function initialize() {
     render();
 }
 
+initialize()
+
 // function - renderBoard - render the game board
-function renderBoard() {
-    // loop over our array that represents the board
-    // apply a background color for each element
-    board.forEach((colArr, colIdx) => {
-        // colArr is the column, colIdx is the id within the array
-        colArr.forEach((cellVal, rowIdx) => {
-            // determine the id of the element
-            const cellId = `c${colIdx}r${rowIdx}`
-
-            const cellEl = document.getElementById(cellId)
-
-            cellEl.style.backgroundColor = colors[cellVal]
-            
-        })
-    })
-}
+function handleMove(evt) {
+    // obtain index of square
+    const idx = parseInt(evt.target.id.replace('sq-', ''));
+    // Guards
+    if (
+      // Didn't click <div> in grid
+      isNaN(idx) ||
+      // Square already taken
+      board[idx] ||
+      // Game over
+      winner
+    ) return;
+    // Update state (board, turn, winner)
+    board[idx] = turn;
+    turn *= -1;
+    winner = getWinner();
+    // Render updated state
+    render();
+  }
 
 function getWinner() {
     for (let winArr of winningCombos) {
