@@ -11,8 +11,8 @@
 // constants
 //////////////////////////////////
 const colors = {
-    null: 'T',
-    1: 'X',
+    'null': 'T',
+    '1': 'X',
     '-1': 'O'
 }
 
@@ -25,7 +25,7 @@ const winningCombos = [
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
-  ];
+];
 
 //////////////////////////////////
 // state variables
@@ -41,15 +41,11 @@ let winner // null || 1 || -1 || 'T'
 const message = document.querySelector('h2');
 const playAgainBtn = document.querySelector('button');
 
-
-
 //////////////////////////////////
 // functions
 //////////////////////////////////
 function initialize() {
     board = [null, null, null, null, null, null, null, null, null];
-    // OR initialize like this:
-    // board = new Array(9).fill(null);
     turn = 1;
     winner = null;
     render();
@@ -57,11 +53,10 @@ function initialize() {
 
 initialize()
 
-// function - renderBoard - render the game board
+// function - handleMove - render the game board
 function handleMove(evt) {
     // obtain index of square
     const idx = parseInt(evt.target.id.replace('sq-', ''));
-    // Guards
     if (
       // Didn't click <div> in grid
       isNaN(idx) ||
@@ -76,22 +71,15 @@ function handleMove(evt) {
     winner = getWinner();
     // Render updated state
     render();
-  }
+}
 
 function getWinner() {
     for (let winArr of winningCombos) {
-      if (Math.abs(board[0] + board[1] + board[2]) === 3) return board[0];
-      if (Math.abs(board[3] + board[4] + board[5]) === 3) return board[3];
-      if (Math.abs(board[6] + board[7] + board[8]) === 3) return board[6];
-      if (Math.abs(board[0] + board[3] + board[6]) === 3) return board[0];
-      if (Math.abs(board[1] + board[4] + board[7]) === 3) return board[1];
-      if (Math.abs(board[2] + board[5] + board[8]) === 3) return board[2];
-      if (Math.abs(board[0] + board[4] + board[8]) === 3) return board[0];
-      if (Math.abs(board[2] + board[4] + board[6]) === 3) return board[2];
-    if (board.includes(null)) return null;
+        if (Math.abs(board[winArr[0]] + board[winArr[1]] + board[winArr[2]]) === 3) return board[winArr[0]];
     }
+if (board.includes(null)) return null;
     return 'T';
-  }
+}
 
 // render -> call all of our render based functions at once
 function render() {
@@ -111,6 +99,7 @@ function renderBoard() {
       squareEl.className = !sqVal ? 'avail' : '';
     });
 }
+
 
 // render message -> display players turn, winner or tie
 function renderMessage() {
