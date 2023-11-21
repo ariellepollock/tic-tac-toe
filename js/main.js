@@ -118,6 +118,17 @@ function renderMessage() {
     }
 }
 
+// render -> call all of our render based functions at once
+function render() {
+    // call renderBoard
+    renderBoard()
+    // call renderMessage
+    renderMessage()
+    // call renderControls
+    renderControls()
+}
+
+
 //////////////////////////////////
 // event listeners
 //////////////////////////////////
