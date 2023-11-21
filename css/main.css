@@ -15,24 +15,28 @@ body {
 header {
     font-size: 50px;
     color: #2b3336;
+    margin-top: 100px;
 }
 
 h2 {
+    font-family: 'Mukta', sans-serif;
     font-size: 40px;
-    color: black;
+    color: #8360a9;
+    margin-top: 5px;
 }
 
 #markers {
     display: grid;
-    grid-template-columns: repeat(3, 50px);
+    grid-template-columns: repeat(3, 100px);
     gap: 10px;
 }
 
 #board {
     display: grid;
-    grid-template-columns: repeat(3, 50px);
-    grid-template-rows: repeat(3, 50px);
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
     gap: 10px;
+    background-color: #2b3336;
 }
 
 button {
@@ -40,11 +44,12 @@ button {
     background-color: #2b3336;
     border-radius: 2px;
     font-size: 20px;
-    margin: auto;
+    padding: 5px;
+    border: 5px;
+    margin-top: 50px;
 }
 
 button:hover {
     color: #2b3336;
     background-color: blanchedalmond;
-    border: 8px #2b3336;
 }
