@@ -79,6 +79,23 @@ function renderBoard() {
     })
 }
 
+// render controls -> changes the visibility of the play again button
+function renderControls() {
+    // change initial vis of the playAgain button
+    // this uses a ternary operator
+    // ask a question ? if true, do this : if false do that
+    playAgainButton.style.visibility = winner ? 'visible' : 'hidden'
+    // change vis of our marker buttons
+    markerEls.forEach((markerEl, colIdx) => {
+        // if all board spaces are full (no 0's left) (means a tie)
+        // OR if we have a winner (winner is a truthy value (not null))
+        const hideMarker = !board[colIdx].includes(0) || winner
+        // if either of those conditions is truthy, hide the markers
+        // otherwise play can continue
+        markerEl.style.visibility = hideMarker ? 'hidden' : 'visible'
+    })
+}
+
 //////////////////////////////////
 // event listeners
 //////////////////////////////////
